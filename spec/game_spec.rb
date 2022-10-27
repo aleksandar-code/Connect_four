@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
-require_relative './game'
-require_relative './board'
-require_relative './players'
+require_relative '../lib/game'
 
-Rspec.describe Game do
+RSpec.describe Game do
     
   describe '#play' do
     context 'when' do

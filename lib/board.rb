@@ -10,4 +10,8 @@ class Board
     ]
     @players = players
   end
+
+  def print_board
+    @board.each { |n| p n }
+  end
 end
