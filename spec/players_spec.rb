@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative './players'
-require_relative './game'
+require_relative '../lib/game'
+require_relative '../lib/players'
 
 Rspec.describe Players do
 
