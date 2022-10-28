@@ -22,6 +22,18 @@ class Game
     end
   end
 
+  def player_switch(id)
+    return 1 if id.zero?
+
+    0
+  end
+
+  def player_symbol(id)
+    return 'X' if id.zero?
+
+    'O'
+  end
+
   def wins
     [
       [1, 2, 3, 4], [2, 3, 4, 5], [1, 1, 1, 1], [2, 2, 2, 2], [3, 3, 3, 3], [4, 4, 4, 4], [5, 5, 5, 5]

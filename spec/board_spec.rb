@@ -6,9 +6,12 @@ require_relative '../lib/players'
 RSpec.describe Board do
   
   describe '#place_at' do
-    context 'when' do
-      it 'returns' do
+    context 'when a location and a symbol are given' do
+  
+      it 'change the board observable state' do
+        
       end
+  
     end
   end
   
