@@ -59,16 +59,27 @@ RSpec.describe Players do
   end
 
   
-  describe '#play' do
-    context 'when' do
+  describe '#check_range' do
+    context 'when an input is given' do
       it 'returns' do
       end
     end
   end
 
-  describe '#play' do
-    context 'when' do
-      it 'returns' do
+  describe '#check_board' do
+  subject(:player) { described_class.new(0) }
+  let(:board) { Board.new }
+    context 'when an input is given' do
+      it 'returns nil' do
+        user_input = 0
+        result = player.check_board(board, user_input)
+        expect(result).to be_falsy
+      end
+
+      it 'it returns the location' do
+        user_input = 1
+        result = player.check_board(board, user_input)
+        expect(result).to eq(result)
       end
     end
   end
