@@ -3,7 +3,7 @@
 require_relative '../lib/board'
 require_relative '../lib/players'
 
-Rspec.describe Board do
+RSpec.describe Board do
   
   describe '#play' do
     context 'when' do

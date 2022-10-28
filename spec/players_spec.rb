@@ -3,14 +3,52 @@
 require_relative '../lib/game'
 require_relative '../lib/players'
 
-Rspec.describe Players do
+RSpec.describe Players do
 
-  describe '#play' do
-    context 'when' do
-      it 'returns' do
+  describe '#player_play' do
+  subject(:player_loop) { described_class.new(0) }
+    context 'when input is valid' do
+
+      it 'stops the loop and does not display error message' do
+        input = 3
+        allow(player_loop).to receive(:player_input).and_return(input)
+        expect(player_loop).not_to receive(:puts).with('Drop your piece in one column 1 to 5')
+        player_loop.player_play
+      end
+
+    end
+
+    context 'when user inputs an incorrect value once, then a valid input' do
+
+      before do
+        letter = 'd'
+        valid = 5
+        allow(player_loop).to receive(:player_input).and_return(letter, valid)
+      end
+
+      it 'completes loop and displays error message once' do
+        expect(player_loop).to receive(:puts).with('Drop your piece in one column 1 to 5').once
+        player_loop.player_play
+      end
+
+    end
+
+    context 'when user inputs two incorrect values, then a valid input' do
+      before do
+        letter = 'd'
+        symbol = '%'
+        valid = 1
+        allow(player_loop).to receive(:player_input).and_return(letter, symbol, valid)
+      end
+
+      it 'completes loop and displays error message twice' do
+        expect(player_loop).to receive(:puts).with('Drop your piece in one column 1 to 5').twice
+        player_loop.player_play
       end
     end
+
   end
+
   
   describe '#play' do
     context 'when' do
