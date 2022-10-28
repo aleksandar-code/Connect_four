@@ -32,9 +32,30 @@ RSpec.describe Game do
     end
   end
 
-  describe '#play' do
-    context 'when' do
-      it 'returns' do
+  describe '#game_over' do
+    subject(:game) { Game.new }
+    let(:board) { Board.new }
+    context 'when it is not game over' do
+      
+      it 'returns false' do
+        expect(game.game_over).to eq(false)
+      end
+    end
+
+    context 'when it is game over' do
+
+      before do
+        board.board= [
+          ["☀", 2, 3, 4, 5],
+          ["☀", 2, 3, 4, 5],
+          ["☀", 2, 3, 4, 5],
+          ["☀", 2, 3, 4, 5]
+      ]
+      game.board=board
+      end
+
+      it 'returns true' do
+        expect(game.game_over).to eq(true)
       end
     end
   end

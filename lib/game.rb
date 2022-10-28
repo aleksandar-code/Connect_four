@@ -20,6 +20,8 @@ class Game
       col = @players[id].player_play
       @board.place_at(col, player_symbol(id))
       @board.print_board
+      return puts "win" if game_over()
+
 
       id = player_switch(id)
     end
@@ -37,15 +39,31 @@ class Game
     '☢'
   end
 
-  def check_win
+  def game_over
     steps_row = [0, 1, 0, -1]
     steps_col = [1, 0, -1, 0]
     board = @board.board
-    board.each do |row|
-      new_row = steps_row[count] + row
-      new_col = steps_col[count] + col
-      array << [new_row, new_col] if valid_square?(new_row, new_col)
-      count += 1
+    i = 0
+    j = 0
+    x = 0
+    y = 0
+    5.times do
+      if board[0][y] == '☀'
+
+        4.times do
+          if board[i][y] == '☀'
+            i = i + 1
+          end
+        end
+
+        if i == 4 
+          return true
+        end
+      end
+      i = 0
+      y = y + 1
+
     end
+    false
   end
 end
