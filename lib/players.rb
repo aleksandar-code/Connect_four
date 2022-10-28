@@ -10,7 +10,7 @@ class Players
   def player_play
     column = nil
     until column
-      column = check_input(player_input)
+      column = verify_input(player_input)
       break if column
 
       puts "Drop your piece in one column 1 to 5"
@@ -22,7 +22,15 @@ class Players
     gets.chomp.to_i
   end
 
+  def verify_input(input)
+    return input if check_input(input) && check_board(@board, input)
+  end
+
   def check_input(input)
-    return input if (1..5).include?(input) && @board.include?(input)
+    (1..9).include?(input)
+  end
+
+  def check_board(board, input)
+    board.board[0].include?(input)
   end
 end

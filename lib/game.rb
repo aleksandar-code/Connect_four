@@ -9,16 +9,16 @@ class Game
   attr_accessor :board, :players
 
   def add_board_players
-    @players[0].board=(@board.board)
-    @players[1].board=(@board.board)
+    @players[0].board=(@board)
+    @players[1].board=(@board)
   end
 
   def play
     id = 0
     @board.print_board
-    puts "Drop your piece in one column 1 to 5"
     loop do
       col = @players[id].player_play
+      @board.print_board
     end
   end
 
