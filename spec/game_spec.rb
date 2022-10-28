@@ -22,11 +22,11 @@ RSpec.describe Game do
       let(:game) { instance_double(Game) }
       
       before do
-        allow(game).to receive(:player_symbol).and_return("X")
+        allow(game).to receive(:player_symbol).and_return("✦")
       end
   
-      it 'returns X' do
-        expect( game.player_symbol(0)).to eq("X")
+      it 'returns ✦' do
+        expect( game.player_symbol(0)).to eq("✦")
       end
   
     end
