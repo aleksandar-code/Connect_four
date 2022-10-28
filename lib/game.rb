@@ -18,7 +18,10 @@ class Game
     @board.print_board
     loop do
       col = @players[id].player_play
+      @board.place_at(col, player_symbol(id))
       @board.print_board
+
+      id = player_switch(id)
     end
   end
 
