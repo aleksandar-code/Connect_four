@@ -23,10 +23,10 @@ class Players
   end
 
   def verify_input(input)
-    return input if check_input(input) && check_board(@board, input)
+    return input if check_range(input) && check_board(@board, input)
   end
 
-  def check_input(input)
+  def check_range(input)
     (1..9).include?(input)
   end
 
