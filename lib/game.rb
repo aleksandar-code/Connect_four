@@ -29,9 +29,9 @@ class Game
   end
 
   def player_symbol(id)
-    return 'X' if id.zero?
+    return '✦' if id.zero?
 
-    'O'
+    '✧'
   end
 
   def wins
