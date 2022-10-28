@@ -30,8 +30,7 @@ class Board
   def print_board
     @board.each do |n|
       n.each_with_index do |x, idx|
-        print "┃ #{x} "
-        print "┃" if n.last == x
+        print "┃   #{x}   "
       end
       puts "\n"
     end
