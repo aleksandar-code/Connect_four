@@ -60,9 +60,26 @@ RSpec.describe Players do
 
   
   describe '#check_range' do
-    context 'when an input is given' do
-      it 'returns' do
+    subject(:player_input) { described_class.new(0) }
+  
+    context 'when given a valid input as argument' do
+  
+      it 'returns valid input' do
+        user_input = 1
+        verified_input = player_input.check_range(user_input)
+        expect(verified_input).to be_truthy
       end
+  
+    end
+  
+    context 'when given invalid input as argument' do
+  
+      it 'returns nil' do
+        user_input = 0
+        verified_input = player_input.check_range(user_input)
+        expect(verified_input).to be_falsy
+      end
+  
     end
   end
 
@@ -70,6 +87,7 @@ RSpec.describe Players do
   subject(:player) { described_class.new(0) }
   let(:board) { Board.new }
     context 'when an input is given' do
+
       it 'returns nil' do
         user_input = 0
         result = player.check_board(board, user_input)
@@ -81,6 +99,7 @@ RSpec.describe Players do
         result = player.check_board(board, user_input)
         expect(result).to eq(result)
       end
+
     end
   end
 
