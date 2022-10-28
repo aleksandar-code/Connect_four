@@ -28,7 +28,13 @@ class Board
   end
 
   def print_board
-    @board.each { |n| p n }
+    @board.each do |n|
+      n.each_with_index do |x, idx|
+        print "┃ #{x} "
+        print "┃" if n.last == x
+      end
+      puts "\n"
+    end
     puts "Drop your piece in one column 1 to 5"
   end
 end
