@@ -37,15 +37,15 @@ class Game
     '☢'
   end
 
-  def matrix
+  def check_win
     steps_row = [0, 1, 0, -1]
     steps_col = [1, 0, -1, 0]
-  end
-  
-  def check_win
     board = @board.board
     board.each do |row|
-      
+      new_row = steps_row[count] + row
+      new_col = steps_col[count] + col
+      array << [new_row, new_col] if valid_square?(new_row, new_col)
+      count += 1
     end
   end
 end
