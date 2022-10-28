@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Board
-  def initialize(players = nil)
+  def initialize(players)
     @board = [
         [1, 2, 3, 4, 5],
         [1, 2, 3, 4, 5],
@@ -10,6 +10,7 @@ class Board
     ]
     @players = players
   end
+  attr_accessor :board, :players
 
   def print_board
     @board.each { |n| p n }

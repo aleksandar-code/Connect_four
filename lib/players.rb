@@ -3,7 +3,9 @@
 class Players
   def initialize(id)
     @id = id
+    @board = nil
   end
+  attr_accessor :board, :id
 
   def player_play
     column = nil
@@ -21,6 +23,6 @@ class Players
   end
 
   def check_input(input)
-    return input if (1..5).include?(input) # and the column isn't full
+    return input if (1..5).include?(input) && @board.include?(input)
   end
 end
