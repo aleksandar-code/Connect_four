@@ -6,14 +6,14 @@ require_relative '../lib/players'
 
 RSpec.describe Game do
     
-  describe '#place_at' do
+  describe '#player_switch' do
     context 'when' do
       it 'returns' do
       end
     end
   end
 
-  describe '#player_switch' do
+  describe '#play' do
     context 'when' do
       it 'returns' do
       end

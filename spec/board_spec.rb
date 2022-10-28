@@ -5,7 +5,7 @@ require_relative '../lib/players'
 
 RSpec.describe Board do
   
-  describe '#play' do
+  describe '#place_at' do
     context 'when' do
       it 'returns' do
       end
