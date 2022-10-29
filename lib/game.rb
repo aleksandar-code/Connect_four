@@ -21,8 +21,8 @@ class Game
       sym = player_symbol(id)
       @board.place_at(col, sym)
       @board.print_board
-      return puts "tie" if tie()
-      return puts "\nplayer:  #{sym}  wins" if game_over(sym)
+      return puts "\nThe game is a TIE!" if tie()
+      return puts "\nPlayer:  #{sym}  WIN!" if game_over(sym)
 
 
       id = player_switch(id)
