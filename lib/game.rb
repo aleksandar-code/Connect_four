@@ -22,7 +22,7 @@ class Game
       @board.place_at(col, sym)
       @board.print_board
       return puts "tie" if tie()
-      return puts "win" if game_over(sym)
+      return puts "\nplayer:  #{sym}  wins" if game_over(sym)
 
 
       id = player_switch(id)
