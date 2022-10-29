@@ -32,7 +32,7 @@ class Board
     @board.each do |n|
       n.each_with_index do |x, idx|
         to_print = x unless (1..4).include?(x)
-        print "┃   #{to_print}   "
+        print "┃ #{to_print} "
         to_print = ' '
       end
       puts "\n"
