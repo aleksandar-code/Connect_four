@@ -39,7 +39,7 @@ class Game
     '☢'
   end
 
-  def game_overs
+  def game_over
     board = @board.board
     i = 0
     y = 0
@@ -66,6 +66,31 @@ class Game
       end
       i = 0
       y = y + 1
+    end
+    y = 0
+    4.times do
+      if board[0][0] == '☀'
+        4.times do
+          if board[y][i] == '☀'
+            y += 1
+            i += 1
+          end
+          return true if i == 4
+        end
+      end
+    end
+    y = 0
+    i = 3
+    4.times do
+      if board[0][3] == '☀'
+        4.times do
+          if board[y][i] == '☀'
+            y += 1
+            i -= 1
+          end
+          return true if y == 4
+        end
+      end
     end
     false
   end
