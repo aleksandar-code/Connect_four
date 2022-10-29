@@ -38,7 +38,7 @@ RSpec.describe Game do
     context 'when it is not game over' do
       
       it 'returns false' do
-        expect(game.game_over).to eq(false)
+        expect(game.game_over("☀")).to eq(false)
       end
     end
 
@@ -55,7 +55,7 @@ RSpec.describe Game do
       end
 
       it 'returns true' do
-        expect(game.game_over).to eq(true)
+        expect(game.game_over("☀")).to eq(true)
       end
     end
 
@@ -72,7 +72,7 @@ RSpec.describe Game do
       end
 
       it 'returns true' do
-        expect(game.game_over).to eq(true)
+        expect(game.game_over("☀")).to eq(true)
       end
 
     end
@@ -90,7 +90,7 @@ RSpec.describe Game do
       end
 
       it 'returns true for the left diagonal' do
-        expect(game.game_over).to eq(true)
+        expect(game.game_over("☀")).to eq(true)
       end
 
       before do
@@ -104,7 +104,7 @@ RSpec.describe Game do
       end
 
       it 'returns true for the right diagonal' do
-        expect(game.game_over).to eq(true)
+        expect(game.game_over("☀")).to eq(true)
       end
 
     end
