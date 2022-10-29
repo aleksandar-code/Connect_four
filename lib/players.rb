@@ -13,7 +13,7 @@ class Players
       column = verify_input(player_input)
       break if column
 
-      puts "Drop your piece in one column 1 to 5"
+      puts "Drop your piece in one column 1 to 4"
     end
     column
   end
