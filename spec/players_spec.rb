@@ -19,7 +19,7 @@ RSpec.describe Players do
       it 'stops the loop and does not display error message' do
         input = 3
         allow(player_loop).to receive(:player_input).and_return(input)
-        expect(player_loop).not_to receive(:puts).with('Drop your piece in one column 1 to 5')
+        expect(player_loop).not_to receive(:puts).with('Drop your piece in one column 1 to 4')
         player_loop.player_play
       end
 
@@ -29,13 +29,13 @@ RSpec.describe Players do
 
       before do
         letter = 'd'
-        valid = 5
+        valid = 4
         player_loop.board=board_players
         allow(player_loop).to receive(:player_input).and_return(letter, valid)
       end
 
       it 'completes loop and displays error message once' do
-        expect(player_loop).to receive(:puts).with('Drop your piece in one column 1 to 5').once
+        expect(player_loop).to receive(:puts).with('Drop your piece in one column 1 to 4').once
         player_loop.player_play
       end
 
@@ -51,7 +51,7 @@ RSpec.describe Players do
       end
 
       it 'completes loop and displays error message twice' do
-        expect(player_loop).to receive(:puts).with('Drop your piece in one column 1 to 5').twice
+        expect(player_loop).to receive(:puts).with('Drop your piece in one column 1 to 4').twice
         player_loop.player_play
       end
     end
