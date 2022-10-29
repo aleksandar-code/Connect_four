@@ -109,7 +109,7 @@ class Game
   def game_over(sym)
     i = 0
     y = 0
-    
+
     return true if vertical_win(i, y, sym)
     return true if horizontal_win(i, y, sym)
     return true if diagonal_left_win(i, y, sym)
@@ -117,5 +117,4 @@ class Game
 
     false
   end
-
 end
