@@ -103,18 +103,4 @@ RSpec.describe Players do
     end
   end
 
-  describe '#play' do
-    context 'when' do
-      it 'returns' do
-      end
-    end
-  end
-
-  describe '#play' do
-    context 'when' do
-      it 'returns' do
-      end
-    end
-  end
-
 end
