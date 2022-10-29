@@ -18,10 +18,11 @@ class Game
     @board.print_board
     loop do
       col = @players[id].player_play
-      @board.place_at(col, player_symbol(id))
+      sym = player_symbol(id)
+      @board.place_at(col, sym)
       @board.print_board
       return puts "tie" if tie()
-      return puts "win" if game_over()
+      return puts "win" if game_over(sym)
 
 
       id = player_switch(id)
@@ -45,11 +46,11 @@ class Game
     '☢'
   end
 
-  def vertical_win(i, y)
+  def vertical_win(i, y, sym)
     4.times do
-      if @board.board[0][y] == '☀'
+      if @board.board[0][y] == sym
         4.times do
-          i += 1 if @board.board[i][y] == '☀'
+          i += 1 if @board.board[i][y] == sym
         end
 
         return true if i == 4 
@@ -60,11 +61,11 @@ class Game
     false
   end
 
-  def horizontal_win(i, y)
+  def horizontal_win(i, y, sym)
     4.times do
-      if @board.board[y][0] == '☀'
+      if @board.board[y][0] == sym
         4.times do
-          i += 1 if @board.board[y][i] == '☀'
+          i += 1 if @board.board[y][i] == sym
         end
 
         return true if i == 4
@@ -75,11 +76,11 @@ class Game
     false
   end
 
-  def diagonal_left_win(i, y)
+  def diagonal_left_win(i, y, sym)
     4.times do
-      if @board.board[0][0] == '☀'
+      if @board.board[0][0] == sym
         4.times do
-          if @board.board[y][i] == '☀'
+          if @board.board[y][i] == sym
             y += 1
             i += 1
           end
@@ -90,11 +91,11 @@ class Game
     false
   end
 
-  def diagonal_right_win(i, y)
+  def diagonal_right_win(i, y, sym)
     4.times do
-      if @board.board[0][3] == '☀'
+      if @board.board[0][3] == sym
         4.times do
-          if @board.board[y][i] == '☀'
+          if @board.board[y][i] == sym
             y += 1
             i -= 1
           end
@@ -105,13 +106,14 @@ class Game
     false
   end
 
-  def game_over
+  def game_over(sym)
     i = 0
     y = 0
-    return true if vertical_win(i, y)
-    return true if horizontal_win(i, y)
-    return true if diagonal_left_win(i, y)
-    return true if diagonal_right_win(3, y)
+    
+    return true if vertical_win(i, y, sym)
+    return true if horizontal_win(i, y, sym)
+    return true if diagonal_left_win(i, y, sym)
+    return true if diagonal_right_win(3, y, sym)
 
     false
   end
