@@ -39,26 +39,17 @@ class Game
     '☢'
   end
 
-  def game_over
-    steps_row = [0, 1]
-    steps_col = [1, 0]
+  def game_overs
     board = @board.board
     i = 0
-    j = 0
-    x = 0
     y = 0
-    5.times do
+    4.times do
       if board[0][y] == '☀'
-
         4.times do
-          if board[i][y] == '☀'
-            i = i + 1
-          end
+          i += 1 if board[i][y] == '☀'
         end
 
-        if i == 4 
-          return true
-        end
+        return true if i == 4 
       end
       i = 0
       y = y + 1
@@ -67,16 +58,11 @@ class Game
 
     4.times do
       if board[y][0] == '☀'
-
         4.times do
-          if board[y][i] == '☀'
-            i += 1
-          end
+          i += 1 if board[y][i] == '☀'
         end
 
-        if i == 4 
-          return true
-        end
+        return true if i == 4
       end
       i = 0
       y = y + 1
