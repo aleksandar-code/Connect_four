@@ -28,9 +28,12 @@ class Board
   end
 
   def print_board
+    to_print = ' '
     @board.each do |n|
       n.each_with_index do |x, idx|
-        print "┃   #{x}   "
+        to_print = x unless (1..4).include?(x)
+        print "┃   #{to_print}   "
+        to_print = ' '
       end
       puts "\n"
     end
