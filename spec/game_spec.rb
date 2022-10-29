@@ -112,17 +112,25 @@ RSpec.describe Game do
 
   end
 
-  describe '#play' do
-    context 'when' do
-      it 'returns' do
-      end
-    end
-  end
+  describe '#tie' do
+    subject(:game) { Game.new }
+    let(:board) { Board.new }
+    context 'when there is no winner and no possible moves' do
 
-  describe '#play' do
-    context 'when' do
-      it 'returns' do
+      before do
+        board.board= [
+          ['☢', '☢', '☢', "☀"],
+          ['☢', '☢', "☀", '☢'],
+          ["☀", '☢', "☀", '☢'],
+          ["☀", "☀", '☢', '☢']
+      ]
+      game.board=board
+      end
+      
+      it 'returns true' do
+        expect(game.tie).to eq(true)
       end
     end
   end
+  
 end

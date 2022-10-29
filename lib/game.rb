@@ -29,7 +29,7 @@ class Game
   end
 
   def tie
-    return false if (1..4)
+    return false if @board.board[0].any?(1..4)
     true
   end
 
