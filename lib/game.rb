@@ -45,14 +45,11 @@ class Game
     '☢'
   end
 
-  def game_over
-    board = @board.board
-    i = 0
-    y = 0
+  def vertical_win(i, y)
     4.times do
-      if board[0][y] == '☀'
+      if @board.board[0][y] == '☀'
         4.times do
-          i += 1 if board[i][y] == '☀'
+          i += 1 if @board.board[i][y] == '☀'
         end
 
         return true if i == 4 
@@ -60,12 +57,14 @@ class Game
       i = 0
       y = y + 1
     end
-    y = 0
+    false
+  end
 
+  def horizontal_win(i, y)
     4.times do
-      if board[y][0] == '☀'
+      if @board.board[y][0] == '☀'
         4.times do
-          i += 1 if board[y][i] == '☀'
+          i += 1 if @board.board[y][i] == '☀'
         end
 
         return true if i == 4
@@ -73,11 +72,14 @@ class Game
       i = 0
       y = y + 1
     end
-    y = 0
+    false
+  end
+
+  def diagonal_left_win(i, y)
     4.times do
-      if board[0][0] == '☀'
+      if @board.board[0][0] == '☀'
         4.times do
-          if board[y][i] == '☀'
+          if @board.board[y][i] == '☀'
             y += 1
             i += 1
           end
@@ -85,12 +87,14 @@ class Game
         end
       end
     end
-    y = 0
-    i = 3
+    false
+  end
+
+  def diagonal_right_win(i, y)
     4.times do
-      if board[0][3] == '☀'
+      if @board.board[0][3] == '☀'
         4.times do
-          if board[y][i] == '☀'
+          if @board.board[y][i] == '☀'
             y += 1
             i -= 1
           end
@@ -98,6 +102,17 @@ class Game
         end
       end
     end
+    false
+  end
+
+  def game_over
+    i = 0
+    y = 0
+    return true if vertical_win(i, y)
+    return true if horizontal_win(i, y)
+    return true if diagonal_left_win(i, y)
+    return true if diagonal_right_win(3, y)
+
     false
   end
 
