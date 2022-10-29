@@ -42,14 +42,14 @@ RSpec.describe Game do
       end
     end
 
-    context 'when it is game over' do
+    context 'when it is a vertical win' do
 
       before do
         board.board= [
-          ["☀", 2, 3, 4, 5],
-          ["☀", 2, 3, 4, 5],
-          ["☀", 2, 3, 4, 5],
-          ["☀", 2, 3, 4, 5]
+          ["☀", 2, 3, 4],
+          ["☀", 2, 3, 4],
+          ["☀", 2, 3, 4],
+          ["☀", 2, 3, 4]
       ]
       game.board=board
       end
@@ -58,6 +58,58 @@ RSpec.describe Game do
         expect(game.game_over).to eq(true)
       end
     end
+
+    context 'when it is a horizontal win' do
+
+      before do
+        board.board= [
+          ["☀", "☀", "☀", "☀"],
+          [1, 2, 3, 4],
+          [1, 2, 3, 4],
+          [1, 2, 3, 4]
+      ]
+      game.board=board
+      end
+
+      it 'returns true' do
+        expect(game.game_over).to eq(true)
+      end
+
+    end
+
+    context 'when it is a diagonal win' do
+
+      before do
+        board.board= [
+          ["☀", 2, 3, 4],
+          [1, "☀", 3, 4],
+          [1, 2, "☀", 4],
+          [1, 2, 3, "☀"]
+      ]
+      game.board=board
+      end
+
+      it 'returns true for the left diagonal' do
+        expect(game.game_over).to eq(true)
+      end
+
+      before do
+        board.board= [
+          [1, 2, 3, "☀"],
+          [1, 2, "☀", 4],
+          [1, "☀", 3, 4],
+          ["☀", 2, 3, 4]
+      ]
+      game.board=board
+      end
+
+      it 'returns true for the right diagonal' do
+        expect(game.game_over).to eq(true)
+      end
+
+    end
+
+
   end
 
   describe '#play' do
