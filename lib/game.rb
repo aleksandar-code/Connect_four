@@ -78,18 +78,6 @@ class Game
           return true
         end
       end
-    
-      if  board[y][1] == '☀'
-        4.times do
-          if board[y][i+1] == '☀'
-            i += 1
-          end
-        end
-
-        if i == 4 
-          return true
-        end
-      end
       i = 0
       y = y + 1
     end
