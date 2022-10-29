@@ -20,11 +20,17 @@ class Game
       col = @players[id].player_play
       @board.place_at(col, player_symbol(id))
       @board.print_board
+      return puts "tie" if tie()
       return puts "win" if game_over()
 
 
       id = player_switch(id)
     end
+  end
+
+  def tie
+    return false if (1..4)
+    true
   end
 
   def player_switch(id)
@@ -94,4 +100,5 @@ class Game
     end
     false
   end
+
 end

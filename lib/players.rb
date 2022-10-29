@@ -27,7 +27,7 @@ class Players
   end
 
   def check_range(input)
-    (1..9).include?(input)
+    (1..4).include?(input)
   end
 
   def check_board(board, input)
